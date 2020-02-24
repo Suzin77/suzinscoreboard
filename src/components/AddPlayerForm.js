@@ -6,8 +6,14 @@ class AddPlayerForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.addPlayer(this.userInput.current.value);
-        // e.currentTarget.reset();
+        const newPlayerName = this.userInput.current.value;
+        if(newPlayerName === ''){
+            alert('dej imie, dej, formularz bez imienia nie przelezie!');
+        } else {
+            this.props.addPlayer(newPlayerName);
+            this.userInput.current.value = '';
+        }
+
     }
 
     render () {
